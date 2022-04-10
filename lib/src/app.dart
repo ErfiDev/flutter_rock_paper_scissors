@@ -1,7 +1,33 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
+
+  @override
+  _App createState() => _App();
+}
+
+class _App extends State<App> {
+  List<String> files = [
+    'images/1.png',
+    'images/2.png',
+    'images/3.png',
+  ];
+  String one = 'images/1.png';
+  String two = 'images/1.png';
+
+  _shuffle() {
+    var rnd = Random();
+    var first = rnd.nextInt(files.length);
+    var second = rnd.nextInt(files.length);
+
+    setState(() {
+      one = files[first];
+      two = files[second];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +46,10 @@ class App extends StatelessWidget {
             children: [
               SizedBox(width: double.infinity),
               Image(
-                image: AssetImage('images/1.png'),
+                image: AssetImage(one),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: _shuffle,
                 child: Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
@@ -33,7 +59,7 @@ class App extends StatelessWidget {
                 ),
               ),
               Image(
-                image: AssetImage('images/3.png'),
+                image: AssetImage(two),
               ),
             ],
           ),
