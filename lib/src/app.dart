@@ -10,11 +10,33 @@ class App extends StatelessWidget {
       title: 'App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('App'),
+          title: Text('Rock-Paper-Scissors'),
           centerTitle: true,
         ),
         body: SafeArea(
-          child: Text('Hello flutter'),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(width: double.infinity),
+              Image(
+                image: AssetImage('images/1.png'),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'START',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Image(
+                image: AssetImage('images/3.png'),
+              ),
+            ],
+          ),
         ),
       ),
     );
